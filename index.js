@@ -50,7 +50,23 @@ function writeToFile(filename, data) {
 function init() {
   inquirer.prompt(questions).then((data) => {
     const filename = "logo.svg";
-    writeToFile(filename);
+
+    const { letters, textColor, shape, shapeColor } = data;
+
+    let svg;
+
+    if (shape === "Circle") {
+      svg = new Circle();
+      return svg.render();
+    } else if (shape === "Triangle") {
+      svg = new Triangle();
+      return svg.render();
+    } else if (shape === "Square") {
+      svg = new Square();
+      return svg.render();
+    }
+
+    writeToFile(filename, svg);
   });
 }
 
