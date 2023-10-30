@@ -51,22 +51,26 @@ function init() {
   inquirer.prompt(questions).then((data) => {
     const filename = "logo.svg";
 
+    console.log(data);
+
     const { letters, textColor, shape, shapeColor } = data;
 
-    let svg;
+    let createSvg;
 
     if (shape === "Circle") {
-      svg = new Circle();
-      return svg.render();
+      svg = new Circle(letters, textColor, shapeColor);
+      console.log(svg.render());
+      createSvg = svg.render();
     } else if (shape === "Triangle") {
-      svg = new Triangle();
-      return svg.render();
+      svg = new Triangle(letters, textColor, shapeColor);
+      createSvg = svg.render();
     } else if (shape === "Square") {
-      svg = new Square();
-      return svg.render();
+      svg = new Square(letters, textColor, shapeColor);
+      createSvg = svg.render();
     }
+    console.log(createSvg);
 
-    writeToFile(filename, svg);
+    writeToFile(filename, createSvg);
   });
 }
 
