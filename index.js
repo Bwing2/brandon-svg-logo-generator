@@ -1,7 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+// Retrieves object exports from shapes.js file
 const { Circle, Triangle, Square } = require("./lib/shapes.js");
 
+// Uses inquirer to prompt the user about letters, text color, shape, and shape color.
 const questions = [
   {
     type: "input",
@@ -41,37 +43,43 @@ const questions = [
   },
 ];
 
-function writeToFile(filename, data) {
-  fs.writeFile(filename, data, (err) => {
-    err ? console.log(err) : console.log("Logo generated!");
-  });
-}
-
+// init() function that takes results from questions prompt and uses the data to create the logo.
 function init() {
   inquirer.prompt(questions).then((data) => {
-    const filename = "logo.svg";
+    // destructures the questions object into the data variable.
+    const { letters, textColor, shape, shapeColor } = data;
+
+    const filename = `./examples/${shape}.svg`;
 
     console.log(data);
 
-    const { letters, textColor, shape, shapeColor } = data;
+    let finalSvg;
 
-    let createSvg;
-
+    // Checks what shape is chosen from prompt and uses the corresponding answers to render svg.
     if (shape === "Circle") {
       svg = new Circle(letters, textColor, shapeColor);
-      console.log(svg.render());
-      createSvg = svg.render();
+      finalSvg = svg.render();
     } else if (shape === "Triangle") {
       svg = new Triangle(letters, textColor, shapeColor);
-      createSvg = svg.render();
+      finalSvg = svg.render();
     } else if (shape === "Square") {
       svg = new Square(letters, textColor, shapeColor);
-      createSvg = svg.render();
+      finalSvg = svg.render();
     }
-    console.log(createSvg);
 
-    writeToFile(filename, createSvg);
+    writeToFile(filename, finalSvg, shape);
   });
 }
 
+// Writes data to a file under filename parameter and console.logs an error if there is one. Otherwise console.logs logo generated message.
+// shape parameter is passed down from init() function to display chosen shape.
+function writeToFile(filename, data, shape) {
+  fs.writeFile(filename, data, (err) => {
+    err
+      ? console.log(err)
+      : console.log(`${shape} Logo generated in examples folder!`);
+  });
+}
+
+// Runs init function
 init();

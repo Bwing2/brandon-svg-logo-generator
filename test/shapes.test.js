@@ -1,9 +1,9 @@
+// Imports object with 3 classes from shapes.js
 const { Circle, Triangle, Square } = require("../lib/shapes.js");
 
 describe("Circle", () => {
   it("Should create instance of Circle class", () => {
     const circle = new Circle();
-    console.log(circle);
     expect(circle).toBeInstanceOf(Circle);
   });
 });
@@ -17,3 +17,8 @@ describe("Triangle", () => {
     );
   });
 });
+
+// Make sure to add this to package.json for tests to run, also have jest installed.
+// "scripts": {
+// "test": "jest"
+// },
