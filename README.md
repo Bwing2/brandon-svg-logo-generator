@@ -1,6 +1,6 @@
 # brandon-svg-logo-generator
 
-[Video Demonstration](placeholder)
+[Video Demonstration](https://youtu.be/J79dXDz0VtA)
 
 ![Github License](https://img.shields.io/badge/License-MIT-green.svg)
 
@@ -33,13 +33,25 @@ As a developer, it is important to be able to create logos for whatever needs yo
 5. The `Shape.svg` file will be available to use in the examples folder.
 6. Save the project using `Ctrl + Shift + S`.
 
+### Example of Terminal
+
+![example-terminal](./assets/images/terminal-example.png)
+
+### Example Logos
+
+![example-logos](./assets/images/example-logos.png)
+
 ## License
 
 Licensed using [MIT](https://opensource.org/license/mit/)
 
 ## Tests
 
-Tests are performed using the `jest` package. Jest allows users to test all functions of their code, and make sure that everything works. These make it easier keep track of errors/bugs. All tests can be found under `shapes.test.js` in the `test` folder. Creating new instances for all the shapes, as well as other tests were used to test different parts of the project.
+Tests are performed using the `jest` package. Jest allows users to test all functions of their code, and make sure that everything works. These make it easier keep track of errors/bugs. All tests can be found under `shapes.test.js` in the `test` folder. Creating new instances, and rendering for all shapes were used to test different parts of the project.
+
+### Tests Example
+
+![test-example](./assets/images/test-example.png)
 
 ## Questions
 
@@ -47,4 +59,4 @@ You are welcome to contact me with questions using the following:
 
 - [GitHub Profile](https://github.com/bwing2)
 
-- [Email](brandon.wing245@gmail.com)
+- [Email](mailto:brandon.wing245@gmail.com)
